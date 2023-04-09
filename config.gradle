@@ -1,0 +1,29 @@
+ext {
+    applicationName = "Core Data"
+    appId = "ru.wearemad.mad_core_data"
+    compileSdk = 33
+    minSdk = 21
+    targetSdk = 33
+
+    //version
+    vCode = 1
+    vName = "1.0.0"
+
+    //gradle
+    gradleVersion = '7.3.0'
+
+    //kotlin
+    kotlinVersion = '1.7.20'
+
+    //app compat
+    appCompatVersion = '1.6.1'
+
+    //serialization
+    serializationVersion = "1.3.3"
+
+    //datastore
+    datastoreVersion = '1.0.0'
+
+    //blockstore
+    blockstoreVersion = '16.2.0'
+}

@@ -1,0 +1,4 @@
+jdk:
+ - openjdk11
+install:
+ - ./gradlew :mad_core_data:build :mad_core_data:publishToMavenLocal
