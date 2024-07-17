@@ -13,8 +13,8 @@ class StringBlockStoreStorage(
         Blockstore.getClient(context)
     )
 
-    override suspend fun set(data: String) {
-        client.set(data.toByteArray(Charsets.UTF_8))
+    override suspend fun set(data: String, syncData: Boolean) {
+        client.set(data.toByteArray(Charsets.UTF_8), syncData = syncData)
     }
 
     override suspend fun get(): String? {

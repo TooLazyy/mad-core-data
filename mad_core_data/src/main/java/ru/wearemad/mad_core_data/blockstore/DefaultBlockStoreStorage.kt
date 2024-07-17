@@ -4,7 +4,6 @@ import com.google.android.gms.auth.blockstore.BlockstoreClient
 import com.google.android.gms.auth.blockstore.RetrieveBytesRequest
 import com.google.android.gms.auth.blockstore.StoreBytesData
 import kotlinx.coroutines.suspendCancellableCoroutine
-import ru.wearemad.mad_core_data.blockstore.BlockStoreStorage
 import kotlin.coroutines.resume
 
 class DefaultBlockStoreStorage(
@@ -12,16 +11,20 @@ class DefaultBlockStoreStorage(
     private val blockstore: BlockstoreClient
 ) : BlockStoreStorage<ByteArray> {
 
-    override suspend fun set(data: ByteArray) {
-        setInternal(data)
+    override suspend fun set(data: ByteArray, syncData: Boolean) {
+        setInternal(data, syncData = syncData)
     }
 
     override suspend fun get(): ByteArray? = getInternal()
 
-    private suspend fun setInternal(data: ByteArray) = suspendCancellableCoroutine { cont ->
+    private suspend fun setInternal(
+        data: ByteArray,
+        syncData: Boolean
+    ) = suspendCancellableCoroutine { cont ->
         val request = StoreBytesData.Builder()
             .setBytes(data)
             .setKey(key)
+            .setShouldBackupToCloud(syncData)
             .build()
         blockstore.storeBytes(request)
             .addOnSuccessListener {
