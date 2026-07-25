@@ -6,7 +6,7 @@ import kotlinx.serialization.serializer
 import kotlin.reflect.KClass
 
 /**
- * Сериализует даныне через kotlinx
+ * Сериализует данные через kotlinx
  * Объект сериализации должен быть с аннотацией @Serializable
  */
 class ObjectPreferencesKotlinxSerializer<T : Any>(

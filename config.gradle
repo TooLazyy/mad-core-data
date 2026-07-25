@@ -6,14 +6,14 @@ ext {
     targetSdk = 36
 
     //version
-    vCode = 3
-    vName = "1.1.0"
+    vCode = 4
+    vName = "1.2.0"
 
     //gradle
-    gradleVersion = '8.9.1'
+    gradleVersion = '8.13.2'
 
     //kotlin
-    kotlinVersion = '2.2.0'
+    kotlinVersion = '2.3.20'
 
     //app compat
     appCompatVersion = '1.7.0'
